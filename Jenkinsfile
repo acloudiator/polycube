@@ -7,9 +7,8 @@ pipeline {
         echo 'Allocating workspace'
         ws(dir: 'build-pcn-iptables') {
           echo 'git clone polycube repo'
-          dir(path: '~') {
-            sh '''rm -rf polycube
-
+          echo 'execution of build'
+          sh '''rm -rf polycube 
 git clone https://github.com/polycube-network/polycube.git
 cd polycube/src/components/iptables
 ls -l
@@ -17,9 +16,6 @@ cmake .. -DENABLE_PCN_IPTABLES=ON
 make
 make install
 ls -l'''
-          }
-
-          echo 'execution of build'
         }
 
       }
