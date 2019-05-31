@@ -1,16 +1,16 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'ubuntu:18.04'
+    }
+
+  }
   stages {
     stage('Build pcn-iptables') {
       steps {
         echo 'Start building pcn-iptables'
-        sh 'cd ${POLYCUBE_WORKSPACE} && ./start.sh ${WORKSPACE}'
-        ws(dir: 'pcn-iptables') {
-          sh '''#!/bin/bash
-echo "Hello World!"'''
-        }
-
-        cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true, disableDeferredWipeout: true)
+        sh '''#!/bin/bash
+echo "Hello!"'''
       }
     }
   }
