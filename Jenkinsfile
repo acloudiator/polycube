@@ -8,7 +8,9 @@ pipeline {
         ws(dir: 'build-pcn-iptables') {
           echo 'change directory to home'
           dir(path: '~') {
-            sh 'rm -rf ~/polycube'
+            sh '''rm -rf ~/polycube
+git clone https://github.com/polycube-network/polycube.git
+cd polycube'''
           }
 
           echo 'git clone polycube repo'
