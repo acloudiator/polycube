@@ -9,16 +9,12 @@ pipeline {
           echo 'git clone polycube repo'
           dir(path: '~') {
             sh '''rm -rf polycube
-
 git clone https://github.com/polycube-network/polycube.git
-cd polycube'''
+cd polycube
+ls'''
           }
 
           echo 'execution of build'
-        }
-
-        dir(path: '~/polycube') {
-          sh 'ls -ltr'
         }
 
       }
