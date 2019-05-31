@@ -4,10 +4,11 @@ pipeline {
     stage('Build pcn-iptables') {
       steps {
         echo 'Start building pcn-iptables'
-        sh '''#!/bin/bash
-echo "Hello!"'''
-        dockerNode(image: 'ubuntu:18.04') {
-          sh 'echo "Hello from container"'
+        ws(dir: 'build-pcn-iptables') {
+          sh '''#!/bin/bash
+cd ~
+git clone https://github.com/polycube-network/polycube.git
+cd ~/polycube/'''
         }
 
       }
