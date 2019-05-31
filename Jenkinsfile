@@ -6,18 +6,18 @@ pipeline {
         echo 'Start building pcn-iptables'
         echo 'Allocating workspace'
         ws(dir: 'build-pcn-iptables') {
-          echo 'change directory to home'
+          echo 'git clone polycube repo'
           dir(path: '~') {
             sh '''rm -rf ~/polycube
 git clone https://github.com/polycube-network/polycube.git
 cd polycube'''
           }
 
-          echo 'git clone polycube repo'
-          git 'https://github.com/polycube-network/polycube.git'
           echo 'execution of build'
-          sh '''cd polycube
-'''
+        }
+
+        dir(path: '~/polycube') {
+          sh 'ls -ltr'
         }
 
       }
