@@ -14,7 +14,7 @@ pipeline {
           echo 'git clone polycube repo'
           git 'https://github.com/polycube-network/polycube.git'
           echo 'execution of build'
-          sh '''cd ~/polycube
+          sh '''cd polycube
 '''
         }
 
